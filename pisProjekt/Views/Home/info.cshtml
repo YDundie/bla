@@ -1,0 +1,29 @@
+﻿@model pisProjekt.Models.upis
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="col-md-5" style="text-align:right">
+            <h2 class="info"> Ime </h2> <h4>@Model.ime </h4>
+            <h2 class="info"> Grad </h2> <h4>@Model.grad </h4>
+            <h2 class="info"> Broj </h2> <h4>+385 @Model.brojTelefona </h4>
+        </div>
+        <div class="col-md-1 verticalLine here"></div>
+        <div class="col-md-5" style="text-align:left">
+            <h2 class="info"> Prezime </h2> <h4>@Model.prezime </h4>
+            <h2 class="info"> Adresa </h2> <h4>@Model.adresa @Model.brojAdrese </h4>
+            <h2 class="info"> Država </h2> <h4>@Model.zemlja </h4>
+        </div>
+
+    </div>
+    <div class="col-md-12">
+        <button type="button" class="btn btn-success btn-md" onclick="location.href='@Url.Action("Index", "Home")'">Vrati se na imenik</button>
+
+    </div>
+</div>

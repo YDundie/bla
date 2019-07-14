@@ -6,6 +6,48 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/datatables")
+    @Styles.Render("~/Content/datatables")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+ 
+
+    <style>
+        #yellow {
+            background-color: #fee344;
+        }
+
+        .maxsize {
+            width: 100vw;
+            color: white;
+            text-shadow: 1px 0px 11px rgba(68,68,68,0.59);
+        }
+
+        .info {
+            text-shadow: 1px 0px 11px rgba(68,68,68,0.22);
+            color: #ff6a00;
+        }
+
+        .verticalLine {
+            border-left: 6px solid white;
+            height: 35vh;
+            padding: 0;
+        }
+
+        .here:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 2px dotted #ff0000;
+            transform: translate(-50%);
+        }
+    </style>
 
 </head>
 <body>
@@ -17,28 +59,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Imenik", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
+        </div>
+    </div>
+    <div class="jumbotron maxsize" id="yellow">
+        <div class="container">
+
+            <h1>Imenik</h1>
+            <p class="lead">Online imenik</p>
+
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Marko Mustač application</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval") <!-- *required for client side validation! -->
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $("#myTable").DataTable();
+        });
+    </script>
+
 </body>
 </html>

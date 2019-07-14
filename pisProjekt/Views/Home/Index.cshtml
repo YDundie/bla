@@ -1,31 +1,48 @@
-﻿@{
+﻿@model IEnumerable<pisProjekt.Models.upis>
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-12">
+        <table class="table table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Broj</th>
+                    <th>Proširi</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var asd in Model)
+                {
+
+                    <tr>
+                        <td>@asd.ime</td>
+                        <td>@asd.prezime</td>
+                        <td>+385 @asd.brojTelefona</td>
+                        <td><button type="button" class="btn btn-info btn-sm" onclick="location.href='@Url.Action("info", "Home", new { id = asd.id })'">Info</button></td>
+                        <td><button type="button" class="btn btn-success btn-sm" onclick="location.href='@Url.Action("edit", "Home", new { id = asd.id })'">Edit</button></td>
+                        <td>
+                            @Html.ActionLink(
+                             "Obrisi",
+                             "deleteUpis",
+                             "Home",
+                             new { id = asd.id },
+                             new { onclick = "return confirm('Are you sure you wish to delete this article?');", @class = "btn btn-danger btn-sm" })
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+            </table>
     </div>
 </div>
+
+

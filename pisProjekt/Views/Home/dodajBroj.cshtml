@@ -1,0 +1,62 @@
+﻿@model pisProjekt.Models.upis
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="table-responsive">
+
+            @using (Html.BeginForm())
+            {
+
+                <p>
+                    @Html.LabelFor(model => model.ime, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.ime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ime, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.prezime, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.prezime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.prezime, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.brojTelefona, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.brojTelefona, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.brojTelefona, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.adresa, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.adresa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.adresa, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.brojAdrese, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.brojAdrese, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.brojAdrese, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.grad, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.grad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.grad, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.zemlja, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.zemlja, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.zemlja, "", new { @class = "text-danger" })
+                </p>
+
+
+
+                <button type="submit" class="btn btn-primary">Dodaj Broj</button>
+            }
+            <br />
+            <button type="button" class="btn btn-success btn-md" onclick="location.href='@Url.Action("Index", "Home")'">Vrati se na imenik</button>
+
+            <hr />
+        </div>
+</div>
